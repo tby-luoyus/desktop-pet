@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*.exe
+*.dmg
+*.msi
+
+# Tauri
+src-tauri/target/
+src-tauri/Cargo.lock
+src-tauri/.tauriignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# API Keys - NEVER COMMIT
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# Rust
+**/*.rs.bk
+Cargo.lock
+
+# Ollama models (large files)
+resources/03-models/**/*.bin
+resources/03-models/**/*.gz
+
+# Unity (if used)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Godot (if used)
+.import/
+export.cfg
+export_presets.cfg
+*.import

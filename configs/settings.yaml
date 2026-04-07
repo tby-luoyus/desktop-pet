@@ -1,0 +1,82 @@
+# DesktopPet 配置文件
+# 所有配置项都有默认值，可在应用内修改并持久化
+
+app:
+  name: "DesktopPet"
+  version: "0.1.0"
+  language: "zh-CN"
+
+# LLM 配置
+llm:
+  provider: "openai"  # openai | claude | ollama
+  apiKey: ""          # 用户配置
+  model: "gpt-4o-mini"
+  temperature: 0.8
+  maxTokens: 500
+  timeout: 30000       # 30秒超时
+
+  # 降级策略
+  fallback:
+    enabled: true
+    chain:
+      - "gpt-4o-mini"
+      - "claude-3-haiku"
+      - "ollama:qwen2.5:7b"
+
+  # Ollama 本地配置
+  ollama:
+    baseUrl: "http://localhost:11434"
+    model: "qwen2.5:7b"
+
+# 感知系统配置
+perception:
+  enabled: true
+  interval:
+    foregroundWindow: 10000   # 10秒
+    idleDetection: 30000      # 30秒
+    screenAnalysis: 300000    # 5分钟
+  idleThreshold: 300000       # 5分钟无操作判定为空闲
+
+# 事件系统配置
+events:
+  randomEvents:
+    enabled: true
+    probabilityPerHour: 3    # 平均每小时3次
+    minInterval: 600000       # 至少10分钟间隔
+  timeBasedEvents:
+    enabled: true
+    meals:
+      lunch: "12:00-13:00"
+      dinner: "18:00-19:00"
+    sleepStart: "22:00"
+    sleepEnd: "06:00"
+
+# 提醒系统
+reminders:
+  enabled: true
+  water:
+    enabled: true
+    interval: 3600000   # 1小时
+  sit:
+    enabled: true
+    interval: 3600000   # 1小时
+    threshold: 3600000   # 久坐1小时提醒
+
+# UI 配置
+ui:
+  pet:
+    scale: 1.0         # 缩放 0.5-2.0
+    opacity: 1.0        # 透明度 0.5-1.0
+    position:
+      x: 100
+      y: 100
+  chatBubble:
+    maxLength: 50       # 单条消息最大字数
+    duration: 5000     # 显示时长(ms)
+
+# 隐私配置
+privacy:
+  screenCaptureEnabled: false
+  audioDetectionEnabled: false
+  dataStorageLocal: true
+  logLevel: "info"     # debug | info | warn | error
