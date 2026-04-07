@@ -95,7 +95,19 @@ interface SettingsState {
   resetSettings: () => void;
 }
 
-const defaultSettings: SettingsState = {
+interface SettingsData {
+  llm: LLMSettings;
+  perception: PerceptionSettings;
+  events: {
+    randomEvents: RandomEventSettings;
+    timeBasedEvents: TimeBasedEventSettings;
+  };
+  reminders: ReminderSettings;
+  ui: UISettings;
+  privacy: PrivacySettings;
+}
+
+const defaultSettings: SettingsData = {
   llm: {
     provider: 'openai',
     apiKey: '',

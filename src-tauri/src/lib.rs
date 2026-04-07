@@ -2,8 +2,8 @@
 //!
 //! 核心模块：提供系统集成、Win32 API调用、本地存储等能力
 
-mod commands;
-mod perception;
+pub mod commands;
+pub mod perception;
 
 pub use commands::*;
 pub use perception::*;

@@ -9,7 +9,7 @@ interface PetSpriteProps {
 }
 
 export function PetSprite({ mood, isSleeping, scale = 1 }: PetSpriteProps) {
-  const [currentFrame, setCurrentFrame] = useState(0);
+  const [, setCurrentFrame] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const spriteRef = useRef<HTMLDivElement>(null);
 

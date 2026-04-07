@@ -8,12 +8,9 @@ use winapi::um::processthreadsapi::OpenProcess;
 use winapi::um::psapi::GetModuleBaseNameW;
 use winapi::um::winbase::QueryFullProcessImageNameW;
 use winapi::um::handleapi::CloseHandle;
-use winapi::um::sysinfoapi::{GetTickCount64, LASTINPUTINFO};
-use winapi::um::winuser::{GetLastInputInfo, USEROBJECTFLAGS};
+use winapi::um::sysinfoapi::GetTickCount64;
+use winapi::um::winuser::{GetLastInputInfo, GetSystemMetrics, LASTINPUTINFO, SM_CXSCREEN, SM_CYSCREEN};
 use winapi::shared::minwindef::{FALSE, DWORD, TRUE};
-use winapi::shared::windef::{HWND};
-use winapi::um::wingdi::GetDC, ReleaseDC;
-use winapi::um::winuser::{GetDeviceCaps, GetSystemMetrics, SM_CXSCREEN, SM_CYSCREEN};
 
 /// 获取前台窗口的进程信息
 pub fn get_foreground_app() -> Result<ActiveApp, String> {
@@ -39,12 +36,13 @@ pub fn get_foreground_app() -> Result<ActiveApp, String> {
         GetWindowThreadProcessId(hwnd, &mut process_id);
 
         // 打开进程获取名称
-        let process_name = OpenProcess(
+        let handle = OpenProcess(
             winapi::um::winnt::PROCESS_QUERY_LIMITED_INFORMATION,
             FALSE,
             process_id,
-        )
-        .map(|handle| {
+        );
+
+        let process_name = if !handle.is_null() {
             let mut name_buf = [0u16; 260];
             let mut size = 260 as DWORD;
             let result = QueryFullProcessImageNameW(
@@ -69,8 +67,9 @@ pub fn get_foreground_app() -> Result<ActiveApp, String> {
             } else {
                 "Unknown".to_string()
             }
-        })
-        .unwrap_or_else(|_| "Unknown".to_string());
+        } else {
+            "Unknown".to_string()
+        };
 
         Ok(ActiveApp {
             process_name,

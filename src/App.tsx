@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PetSprite } from './04-ui/src/components/PetSprite';
 import { ChatBubble } from './04-ui/src/components/ChatBubble';
 import { Settings } from './04-ui/src/components/Settings';

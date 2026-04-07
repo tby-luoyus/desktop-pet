@@ -55,7 +55,6 @@
         "installerIcon": "icons/icon.ico",
         "headerImage": null,
         "sidebarImage": null,
-        "license": null,
         "installMode": "currentUser"
       }
     }

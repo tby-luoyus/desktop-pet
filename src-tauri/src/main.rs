@@ -2,7 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use desktop_pet_lib::{commands, init_logging};
-use tauri::Manager;
+use tauri::{Emitter, Manager};
 
 fn main() {
     // 初始化日志

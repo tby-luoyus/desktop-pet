@@ -26,10 +26,13 @@ directories = "5"
 winapi = { version = "0.3", features = [
     "winuser",
     "shellapi",
-    "埋",
     "processthreadsapi",
     "winbase",
     "wingdi",
+    "psapi",
+    "handleapi",
+    "sysinfoapi",
+    "winnt",
 ] }
 once_cell = "1"
 parking_lot = "0.12"
