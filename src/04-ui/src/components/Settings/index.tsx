@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSettingsStore } from '../../stores/settings-store';
+import { Settings as SettingsIcon, Bot, Eye, Dice1, Palette } from 'lucide-react';
 
 interface SettingsProps {
   onClose: () => void;
@@ -30,11 +31,11 @@ export function Settings({ onClose }: SettingsProps) {
 
   return (
     <div className="settings-panel">
-      <h2>⚙️ 设置</h2>
+      <h2><SettingsIcon size={20} style={{ marginRight: 8, verticalAlign: 'middle' }} />设置</h2>
 
       {/* LLM 设置 */}
       <div className="settings-section">
-        <h3>🤖 LLM 设置</h3>
+        <h3><Bot size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />LLM 设置</h3>
 
         <div className="settings-row">
           <label>Provider</label>
@@ -70,7 +71,7 @@ export function Settings({ onClose }: SettingsProps) {
 
       {/* 感知设置 */}
       <div className="settings-section">
-        <h3>👁️ 感知设置</h3>
+        <h3><Eye size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />感知设置</h3>
 
         <div className="settings-row">
           <label>启用感知</label>
@@ -96,7 +97,7 @@ export function Settings({ onClose }: SettingsProps) {
 
       {/* 事件设置 */}
       <div className="settings-section">
-        <h3>🎲 事件设置</h3>
+        <h3><Dice1 size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />事件设置</h3>
 
         <div className="settings-row">
           <label>随机事件</label>
@@ -121,7 +122,7 @@ export function Settings({ onClose }: SettingsProps) {
 
       {/* 外观设置 */}
       <div className="settings-section">
-        <h3>🎨 外观设置</h3>
+        <h3><Palette size={16} style={{ marginRight: 8, verticalAlign: 'middle' }} />外观设置</h3>
 
         <div className="settings-row">
           <label>缩放</label>

@@ -57,10 +57,10 @@
 ```
 Sprint周期: 2周/个Sprint
 每个Sprint包含:
-  📅 Sprint Planning (周一)
-  🛠️ Daily Standup (每日一次)
-  🔍 Sprint Review (周五)
-  📋 Sprint Retrospective (周五)
+  [Sprint Planning] (周一)
+  [Daily Standup] (每日一次)
+  [Sprint Review] (周五)
+  [Sprint Retrospective] (周五)
 ```
 
 | Sprint | 主要目标 | 交付物 |

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Settings, Info, X, PawPrint } from 'lucide-react';
 
 interface TrayMenuProps {
   onAction: (action: string) => void;
@@ -17,9 +18,9 @@ export function TrayMenu({ onAction }: TrayMenuProps) {
   }, [isOpen]);
 
   const menuItems = [
-    { id: 'settings', label: '⚙️ 设置', action: 'settings' },
-    { id: 'about', label: 'ℹ️ 关于', action: 'about' },
-    { id: 'quit', label: '❌ 退出', action: 'quit' },
+    { id: 'settings', label: '设置', action: 'settings', Icon: Settings },
+    { id: 'about', label: '关于', action: 'about', Icon: Info },
+    { id: 'quit', label: '退出', action: 'quit', Icon: X },
   ];
 
   return (
@@ -37,11 +38,13 @@ export function TrayMenu({ onAction }: TrayMenuProps) {
           background: '#6366f1',
           border: 'none',
           cursor: 'pointer',
-          fontSize: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
         }}
       >
-        🐾
+        <PawPrint size={20} color="white" />
       </button>
 
       {/* 下拉菜单 */}
@@ -72,6 +75,9 @@ export function TrayMenu({ onAction }: TrayMenuProps) {
                 cursor: 'pointer',
                 borderRadius: 4,
                 fontSize: 14,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = '#333';
@@ -80,6 +86,7 @@ export function TrayMenu({ onAction }: TrayMenuProps) {
                 e.currentTarget.style.background = 'transparent';
               }}
             >
+              <item.Icon size={16} />
               {item.label}
             </div>
           ))}
