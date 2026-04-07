@@ -1,10 +1,10 @@
 # 需求跟踪矩阵 (Requirements Tracking Matrix)
 
-**文档版本**: v1.0.1
+**文档版本**: v1.0.2
 **创建日期**: 2026-04-07
 **最后更新**: 2026-04-07
 **项目**: DesktopPet - LLM驱动桌面宠物
-**状态**: 🔨 Sprint 0进行中
+**状态**: ✅ Sprint 0完成
 
 ---
 
@@ -108,6 +108,10 @@
 - ✅ Zustand状态管理 (`pet-store`, `chat-store`, `settings-store`)
 - ✅ GitHub Actions CI/CD配置
 - ✅ 文档体系 (SRS, 需求跟踪, 项目结构)
+- ✅ MSVC工具链支持
+- ✅ 图标资源生成
+- ✅ 前端构建验证通过 (`npm run build`)
+- ✅ Rust后端编译验证通过 (`cargo check`)
 
 ### 待实现模块 (Sprint 1+)
 - ⬜ LLM对话上下文管理
